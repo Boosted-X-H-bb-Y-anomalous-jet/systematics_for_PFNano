@@ -107,17 +107,17 @@ def addSys(inputFile,oDir,year):
         a.Define('GenParticle_vect','hardware::TLvector(GenPart_pt, GenPart_eta, GenPart_phi, GenPart_mass)')
         a.Define('jet0', 'DijetIdxs[0] < 0 ? hardware::TLvector(0, 0, 0, 0) : FatJet_vect[DijetIdxs[0]]')
         a.Define('jet1', 'DijetIdxs[1] < 0 ? hardware::TLvector(0, 0, 0, 0) : FatJet_vect[DijetIdxs[1]]')
-    #     a.AddCorrection(
-    #         Correction('TptReweight','TIMBER/Framework/include/TopPt_weight.h',corrtype='weight'),
-    #         evalArgs={
-    #             'GenPart_pdgId':'GenPart_pdgId',
-    #             'GenPart_statusFlags':'GenPart_statusFlags',
-    #             'GenPart_vect':'GenParticle_vect',
-    #             "jet0":"jet0",
-    #             "jet1":"jet1",
-    #             'scale': 0.5
-    #         }
-    #    )
+        a.AddCorrection(
+            Correction('TptReweight','TIMBER/Framework/include/TopPt_weight.h',corrtype='weight'),
+            evalArgs={
+                'GenPart_pdgId':'GenPart_pdgId',
+                'GenPart_statusFlags':'GenPart_statusFlags',
+                'GenPart_vect':'GenParticle_vect',
+                "jet0":"jet0",
+                "jet1":"jet1",
+                'scale': 0.5
+            }
+       )
 
     #JME Corrections
     a = JM.AutoJME(a, 'FatJet', year) #, 'D')
