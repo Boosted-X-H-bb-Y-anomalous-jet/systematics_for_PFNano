@@ -19,7 +19,7 @@ tar -xf tarball.tgz; rm tarball.tgz
 pwd
 ls
 
-python3 -m virtualenv timber-env
+python3 -m venv timber-env
 source timber-env/bin/activate
 cd TIMBER
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cvmfs/cms.cern.ch/el8_amd64_gcc10/external/boost/1.78.0-0d68c45b1e2660f9d21f29f6d0dbe0a0/lib
